@@ -26,6 +26,7 @@ public class ScreenGameStageOnly extends AbstractGameScreen {
 
     private static class TestActor extends Actor {
         private boolean touched;
+        private Texture texture = new Texture(Gdx.files.internal("badlogic.jpg"));
 
         private TestActor() {
             setBounds(100, 100, 600, 600);
@@ -65,7 +66,7 @@ public class ScreenGameStageOnly extends AbstractGameScreen {
             super.draw(batch, parentAlpha);
 
             batch.setColor(touched ? Color.GREEN : Color.RED);
-            batch.draw(new Texture(Gdx.files.internal("badlogic.jpg")), getX(), getY(), getWidth(), getHeight());
+            batch.draw(texture, getX(), getY(), getWidth(), getHeight());
         }
     }
 
@@ -89,7 +90,7 @@ public class ScreenGameStageOnly extends AbstractGameScreen {
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
-
+    @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(0.706f, 0.851f, 0.847f, 1);
         Gdx.gl.glClear(GL30.GL_COLOR_BUFFER_BIT);
