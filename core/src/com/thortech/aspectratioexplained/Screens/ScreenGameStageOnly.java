@@ -13,7 +13,6 @@ import com.thortech.aspectratioexplained.AbstractGameScreen;
 import com.thortech.aspectratioexplained.Actors.Board;
 import com.thortech.aspectratioexplained.Actors.LibGdXActor;
 import com.thortech.aspectratioexplained.AspectRatioExplained;
-import com.thortech.aspectratioexplained.Helpers.LogHelper;
 import com.thortech.aspectratioexplained.Settings;
 
 /**
@@ -86,6 +85,7 @@ public class ScreenGameStageOnly extends AbstractGameScreen {
     }
 
     public void show() {
+        Gdx.input.setInputProcessor(ui);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     }
 
