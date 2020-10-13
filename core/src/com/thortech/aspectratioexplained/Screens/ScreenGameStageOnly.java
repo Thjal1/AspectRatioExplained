@@ -22,10 +22,12 @@ import com.thortech.aspectratioexplained.Settings;
 public class ScreenGameStageOnly extends AbstractGameScreen {
 
     private static final String TAG = ScreenGameFill.class.getName();
+    private LibGdXActor libGdXActor1 = new LibGdXActor();
 
     private static class TestActor extends Actor {
         private boolean touched;
         private Texture texture = new Texture(Gdx.files.internal("badlogic.jpg"));
+
 
         private TestActor() {
             setBounds(100, 100, 600, 600);
@@ -77,12 +79,10 @@ public class ScreenGameStageOnly extends AbstractGameScreen {
     }
 
     protected void create() {
-        //Statics.assets.getMainMenu().finishAndConsume();
-
-//        addInputProcessor(ui);
         Gdx.input.setInputProcessor(ui);
         ui.setDebugAll(true);
         ui.addActor(new TestActor());
+        ui.addActor(libGdXActor1);
     }
 
     public void show() {
@@ -113,11 +113,6 @@ public class ScreenGameStageOnly extends AbstractGameScreen {
     @Override
     public void dispose() {
 
-    }
-
-    @Override
-    public void act(float delta) {
-        super.act(delta);
     }
 
     public void pause() {
