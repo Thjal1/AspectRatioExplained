@@ -7,7 +7,8 @@ package com.thortech.aspectratioexplained;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-public abstract class AbstractGameScreen extends Stage implements Screen {
+//public abstract class AbstractGameScreen extends Stage implements Screen {
+public abstract class AbstractGameScreen implements Screen {
 
     //    protected Assets assets;
     protected AspectRatioExplained game;
