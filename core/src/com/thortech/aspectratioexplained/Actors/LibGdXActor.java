@@ -22,8 +22,8 @@ public class LibGdXActor extends Actor {
     private Texture texture;
     private Sprite sprite; // = new Sprite(new Texture(Gdx.files.internal("badlogic.jpg")));
 
-    public boolean moveRight = false; //PUBLIC???!?
-    public boolean moveLeft = false;
+    private boolean moveRight = false;
+    private boolean moveLeft = false;
 
 
     public LibGdXActor(){

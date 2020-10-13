@@ -88,6 +88,8 @@ public class ScreenGameStageOnly extends AbstractGameScreen {
     public void show() {
         Gdx.input.setInputProcessor(ui);
         resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        ui.setKeyboardFocus(libGdXActor1);
     }
 
     @Override
