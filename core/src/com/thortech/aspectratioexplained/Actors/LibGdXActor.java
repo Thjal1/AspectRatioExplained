@@ -25,7 +25,6 @@ public class LibGdXActor extends Actor {
     private boolean moveRight = false;
     private boolean moveLeft = false;
 
-
     public LibGdXActor(){
         texture = new Texture(Gdx.files.internal("badlogic.jpg"));
         sprite = new Sprite(texture);
@@ -34,24 +33,54 @@ public class LibGdXActor extends Actor {
 
         setTouchable(Touchable.enabled);
 
-        addListener(new InputListener(){
-
-            @Override
-            public boolean keyDown(InputEvent event, int keycode) {
-                switch (keycode) {
-                    case Input.Keys.A:
-                        LogHelper.Log(TAG + "-LibGdxActor LEFT", event.toString(), Application.LOG_INFO);
-                        MoveByAction mba = new MoveByAction();
-                        mba.setAmount(-100f, 0f);
-                        mba.setDuration(10f);
-                        LibGdXActor.this.addAction(mba);
-                        ((LibGdXActor) event.getTarget()).moveLeft = true;
-                }
-                return true;
-            }
-
+        addListener(new InputListener() {
+                        @Override
+                        public boolean keyDown(InputEvent event, int keycode) {
+                            LogHelper.Log(TAG, event.toString()+ keycode, Application.LOG_INFO);
+                            switch (keycode) {
+                                case Input.Keys.LEFT:
+                                    LogHelper.Log(TAG + "-LibGdxActor Left " + Input.Keys.LEFT, event.toString(), Application.LOG_INFO);
+                                    MoveByAction mbaLeft = new MoveByAction();
+                                    mbaLeft.setAmount(-100f, 0f);
+                                    mbaLeft.setDuration(1f);
+                                    LibGdXActor.this.addAction(mbaLeft);
+                                    //((LibGdXActor) event.getTarget()).moveLeft = true;
+                                    break;
+                                case Input.Keys.RIGHT:
+                                    LogHelper.Log(TAG + "-LibGdxActor RIGHT" + Input.Keys.LEFT, event.toString(), Application.LOG_INFO);
+                                    MoveByAction mbaRight = new MoveByAction();
+                                    mbaRight.setAmount(100f, 0f);
+                                    mbaRight.setDuration(1f);
+                                    LibGdXActor.this.addAction(mbaRight);
+                                    //((LibGdXActor) event.getTarget()).moveRight = true;
+                                    break;
+                                case Input.Keys.UP:
+                                    LogHelper.Log(TAG + "-LibGdxActor UP", event.toString(), Application.LOG_INFO);
+                                    MoveByAction mbaUp = new MoveByAction();
+                                    mbaUp.setAmount(0f, 100f);
+                                    mbaUp.setDuration(1f);
+                                    LibGdXActor.this.addAction(mbaUp);
+                                    //((LibGdXActor) event.getTarget()).moveUp = true;
+                                    break;
+                                case Input.Keys.DOWN:
+                                    LogHelper.Log(TAG + "-LibGdxActor DOWN", event.toString(), Application.LOG_INFO);
+                                    MoveByAction mbaDown = new MoveByAction();
+                                    mbaDown.setAmount(0f, -100f);
+                                    mbaDown.setDuration(1f);
+                                    LibGdXActor.this.addAction(mbaDown);
+                                    //((LibGdXActor) event.getTarget()).moveDown = true;
+                                    break;
+                                default:
+                                    LogHelper.Log(TAG + "-LibGdxActor No key catched", event.toString(), Application.LOG_INFO);
+                                    break;
+                            }
+                            return true;
+                        }
+            });
+        }
+/*
            @Override
-           //public boolean keyDown(InputEvent event, int keycode){
+
            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                LogHelper.Log(TAG + "-LibGdxActor 2", event.toString(), Application.LOG_INFO);
             //   if(keycode == Input.Keys.RIGHT){
@@ -67,6 +96,7 @@ public class LibGdXActor extends Actor {
            }
         });
     }
+  */
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
